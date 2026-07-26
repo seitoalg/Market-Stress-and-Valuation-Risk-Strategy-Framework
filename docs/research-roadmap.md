@@ -5,7 +5,7 @@
 - Compare raw and log-transformed VIX distributions.
 - Evaluate central fit and tail deviations with histograms and Q-Q plots.
 - Compare daily Close and monthly High.
-- Examine regime stability and adaptive thresholds.
+- Compare distribution stability across market regimes.
 
 ## 2. SKEW analysis
 
@@ -22,8 +22,9 @@
 
 ## 4. VIX event strategy
 
-- Reconstruct month-to-date VIX High on a point-in-time basis.
-- Preserve the long-run backfilled baseline as a retrospective classification choice.
+- Define the event threshold from the raw monthly VIX High using a 360-month mean and standard deviation.
+- Reconstruct the current month's VIX High on a point-in-time, month-to-date basis.
+- Preserve the first completed 360-month baseline as an intentional retrospective classification rule for the early sample.
 - Add staged entries, profit-taking, cash management, and daily portfolio accounting.
 - Compare against SPY, QQQ, periodic investment, and continuous leverage.
 - Test whether event-conditioned leverage improves the risk-return trade-off.
