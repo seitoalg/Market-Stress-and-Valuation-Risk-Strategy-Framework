@@ -22,9 +22,10 @@ the same research presentation used by the VIX distribution notebook:
 - keeps the incomplete current month out of the historical monthly
   distribution while retaining it as a provisional current model input.
 
-The notebook retains its latest validated result tables in the committed
-output cells. Rerunning it updates the data, tables, and charts; Git history
-preserves earlier research snapshots.
+The notebook retains its latest validated result tables and displays committed
+chart snapshots from `reports/generated/skew_distribution/`. Rerunning all
+cells regenerates the live tables and Matplotlib charts; Git history preserves
+earlier research snapshots.
 
 ## Official SKEW parameter
 
