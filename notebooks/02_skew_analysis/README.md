@@ -39,6 +39,20 @@ The implemented parameter is only the approved two-stage transformation:
 The result is a bounded normal-score mapping. It is not a crash probability or
 an empirical historical percentile.
 
+## Design rationale
+
+The 120-month window is used because monthly SKEW is strongly autocorrelated
+and requires a stable long-run reference, while a substantially longer window
+would adapt too slowly and leave too few transformed observations. Ten years
+is treated as a practical design range, not a uniquely estimated optimum.
+
+The transformation is two-stage because the financial-crisis analysis finds
+both a change in level and a change in dispersion. Completed-month Log SKEW is
+approximately horizontal before 2008 after serial-dependence adjustment, but
+rises by about 1.31% per year from 2008 onward. The first stage removes the
+evolving level; the second evaluates the remaining deviation relative to its
+own evolving mean and standard deviation.
+
 ## Boundary
 
 Forward returns, drawdowns, joint VIX-SKEW event states, and trading rules are
