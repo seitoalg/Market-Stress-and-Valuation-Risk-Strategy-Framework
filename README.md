@@ -25,3 +25,17 @@ A Python research portfolio examining market stress, option-implied risk, valuat
 The first portfolio commit imports the original notebooks without analytical edits. Subsequent commits will improve point-in-time consistency, reproducibility, portfolio accounting, benchmarks, and robustness while preserving the complete Git history.
 
 See [the research roadmap](docs/research-roadmap.md) and [the original import manifest](docs/original-import-manifest.md).
+
+## Live data and reproducibility
+
+The notebooks are designed to refresh from the latest available market data. Each full execution records a single UTC run timestamp and reports the latest observation date for every source. Saved outputs therefore represent the most recent committed run, while Git history preserves earlier snapshots.
+
+For consistent results:
+
+1. Use Python 3.13.9.
+2. Install the pinned dependencies with `python -m pip install -r requirements.txt`.
+3. Run each notebook from top to bottom with **Run All**.
+4. Commit the refreshed notebook only after all tables and charts were generated in that same run.
+
+Primary live sources currently include Cboe VIX history, Yahoo Finance data accessed through yfinance, and the Shiller CAPE table from Multpl.
+
