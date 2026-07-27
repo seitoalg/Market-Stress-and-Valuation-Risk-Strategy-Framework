@@ -49,6 +49,75 @@ The larger full-sample non-normality is therefore driven substantially by
 structural movement in the level and volatility of SKEW. A stationary
 full-history lognormal model is not supported.
 
+## Financial-crisis trend test
+
+The broad regime comparison is supplemented with a segmented trend analysis of
+completed-month Log SKEW. January 2008 is selected **a priori** from financial
+history and then tested; it is not a breakpoint chosen by searching for the
+date that maximizes statistical significance.
+
+Because monthly SKEW is strongly serially dependent, the trend p-values use
+Newey-West/HAC standard errors with 12 lags.
+
+| Period | N | Annualized Log SKEW trend | HAC p-value | Interpretation |
+|---|---:|---:|---:|---|
+| 1990-2007 | 216 | +0.17% | 0.102 | approximately horizontal |
+| 2008-2026-06 | 222 | +1.31% | 6.79e-15 | strongly significant upward trend |
+
+The HAC p-value for the change in slope at the 2008 split is 8.74e-09.
+Therefore, the evidence supports treating the pre-crisis period as
+approximately horizontal and the post-crisis period as a structurally rising
+Log SKEW regime.
+
+An earlier exploratory endpoint produced an annualized post-2008 estimate of
+about 1.26%. Updating the completed-month sample through June 2026 gives about
+1.31%; the economic and statistical conclusion is unchanged.
+
+This confirms a parameter change at the historically specified 2008 boundary.
+It does not claim that an unrestricted breakpoint search proved January 2008
+to be the unique exact break date.
+
+## Why the rolling window is 120 months
+
+Monthly SKEW has strong persistence: its lag-1 autocorrelation is approximately
+0.85. A short rolling window would allow a sustained risk elevation to reset
+its own baseline too quickly. Conversely, a much longer window would adapt too
+slowly to the post-crisis structure and would sharply reduce the usable
+transformed sample.
+
+A 120-month window is therefore retained as a practical balance among:
+
+- stability against short-lived and serially correlated movements;
+- adaptation to the post-crisis structural regime;
+- preservation of a usable number of transformed observations.
+
+The persistence analysis supports ten years as a practical design range. It
+does not make 120 months a uniquely determined mathematical optimum.
+
+## Why the transformation has two stages
+
+The first stage measures the relative deviation of Log SKEW from its trailing
+120-month mean. This removes the evolving **level** represented by the
+post-crisis upward trend.
+
+A level adjustment alone is insufficient because the distribution's
+dispersion also changed. The standard deviation of completed-month Log SKEW
+rose from approximately 0.041 in 1990-2007 to 0.091 from 2020 onward. The
+second stage therefore standardizes the first-stage deviation using the
+rolling mean and rolling standard deviation of that deviation.
+
+The two stages have different jobs:
+
+1. stage one removes the evolving structural level;
+2. stage two evaluates the residual deviation relative to its evolving center
+   and variability.
+
+The normal CDF then converts the resulting Z-score into the bounded component
+required by the composite indicator. This design intentionally measures an
+unusual move relative to the current SKEW structure rather than the absolute
+historical height of SKEW. Whether that removes too much persistent economic
+risk remains a question for later forward-return and drawdown validation.
+
 ## Current composite-model transformation
 
 The live composite model applies:
