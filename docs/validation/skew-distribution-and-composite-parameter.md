@@ -13,6 +13,10 @@ through 2026-07-24. Historical monthly distribution tests include completed
 months only, through 2026-06-30. The 2026-07-24 Close is used separately as the
 provisional July model input.
 
+The executable analysis and its saved result tables are presented in
+`notebooks/02_skew_analysis/skew_distribution_analysis.ipynb`, following the
+same notebook-based research format as the VIX distribution analysis.
+
 ## Raw and log distributions
 
 | Series | N | Skewness | Excess kurtosis | Lag-1 autocorrelation |
@@ -66,20 +70,19 @@ Shapiro-Wilk and Jarque-Bera do not reject the shape of a normal distribution
 at the 5% level. However, the series is not calibrated as standard normal:
 the Kolmogorov-Smirnov p-value against N(0,1) is 0.000022. Consequently, the
 normal-CDF output is not a historically calibrated percentile and should be
-described as a normal-score mapping.
+described as a bounded normal-score mapping.
 
-## Current reading and sensitivity
+## Current reading
 
-Using the 2026-07-24 SKEW Close of 147.28:
+Using the 2026-07-24 SKEW Close of 147.28, the approved two-stage model gives:
 
-- current two-stage model: Z = 0.131, normal-score risk = 55.19%;
-- simple trailing-120-month log Z: normal-score risk = 79.14%;
-- trailing-120-month empirical percentile: 78.33%.
+- Z-score: 0.131;
+- bounded normal-score: 55.19%.
 
-This gap is economically material. The two-stage model removes much more of
-the post-2020 structural elevation than a one-stage rolling normalization.
-Therefore, the treatment of structural change—not the choice between raw and
-log values alone—is the main SKEW parameter decision.
+This means the current deviation is only modestly above the model's rolling
+center after the post-crisis structural rise in SKEW has been absorbed. The
+55.19% result is neither a crash probability nor an empirical rank among the
+past 120 months.
 
 ## Decision
 
@@ -100,5 +103,6 @@ The normal-CDF result is used as a bounded composite risk score, not as a
 calibrated crash probability or historical percentile. Trading thresholds,
 event rules, and forward-return analysis remain outside this validation.
 
-The canonical implementation is `src/market_risk/skew.py`. Both the validation
-script and the integrated composite calculation use that implementation.
+The canonical calculation is `src/market_risk/skew.py`. Both the SKEW
+validation notebook and the integrated composite notebook use that shared
+implementation.
