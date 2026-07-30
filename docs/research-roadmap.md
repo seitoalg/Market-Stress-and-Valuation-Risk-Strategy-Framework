@@ -14,13 +14,26 @@
 - Measure forward returns, drawdowns, and stress-event timing.
 - Separate descriptive relationships from predictive evidence.
 
-## 3. Market risk indicator
+## 3. Shiller CAPE analysis
+
+- Study the full-sample Raw CAPE distribution and long-run level movement.
+- Compare transparent trend diagnostics without selecting a retrospective
+  fixed-trend correction for live use.
+- Validate the two-stage 120-month relative-deviation transformation.
+- Connect the window choice to CAPE's own ten-year real-earnings construction.
+- Measure final-Z coverage, asymmetry, and serial dependence.
+- Interpret the normal CDF as the bounded theoretical cumulative probability
+  corresponding to the final Z-score.
+- Freeze the CAPE parameter before forward-return or strategy testing.
+
+## 4. Market risk indicator
 
 - Maintain interpretable VIX, SKEW, and Shiller CAPE components.
-- Define the composite as a relative risk percentile, not a crash probability.
+- Define the composite as a relative risk percentile with transparent
+  component context.
 - Evaluate correlation, information overlap, horizons, and calibration.
 
-## 4. VIX event strategy
+## 5. VIX event strategy
 
 - Define the event threshold from the raw monthly VIX High using a 360-month mean and standard deviation.
 - Reconstruct the current month's VIX High on a point-in-time, month-to-date basis.
