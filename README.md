@@ -6,15 +6,19 @@ A Python research portfolio examining market stress, option-implied risk, valuat
 
 1. **VIX properties** — raw and log distributions, tail behavior, regimes, and monthly highs.
 2. **SKEW analysis** — distribution, structural trends, interaction with VIX, and forward outcomes.
-3. **Market risk indicator** — a composite framework using VIX, SKEW, and Shiller CAPE.
-4. **VIX event strategy** — stress-event detection, staged entries, leverage, cash management, and benchmark comparison.
+3. **Shiller CAPE analysis** — distribution, long-run valuation shifts, and the relative-valuation transform.
+4. **Market risk indicator** — a composite framework using VIX, SKEW, and Shiller CAPE.
+5. **Backtest** — reserved for the portfolio-accounting and benchmark layer.
+6. **VIX event strategy** — stress-event detection, staged entries, leverage, and event-state rules.
 
 ## Repository layout
 
 - `notebooks/01_vix_properties/` — VIX distribution research.
 - `notebooks/02_skew_analysis/` — dedicated SKEW research.
-- `notebooks/03_market_risk_indicator/` — composite risk indicator research.
-- `notebooks/04_vix_event_strategy/` — event detection and strategy research.
+- `notebooks/03_cape_analysis/` — Shiller CAPE distribution and valuation-risk research.
+- `notebooks/04_market_risk_indicator/` — composite risk indicator research.
+- `notebooks/05_backtest/` — reserved for the future backtest implementation.
+- `notebooks/06_vix_event_strategy/` — event detection and strategy research.
 - `src/` — reusable research code as notebooks are refactored.
 - `tests/` — tests for indicators, signals, and backtests.
 - `reports/` — selected figures and result tables.
